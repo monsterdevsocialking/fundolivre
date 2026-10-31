@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FundoLivre — Remover Fundo de Imagem Grátis Online</title>
+
+  <meta name="description" content="Remova o fundo de imagens gratuitamente e online com o FundoLivre. Transforme fotos em PNG transparente, processe várias imagens e descarregue os resultados.">
+  <meta name="keywords" content="remover fundo de imagem, removedor de fundo grátis, tirar fundo de foto, imagem PNG transparente, remover fundo online, remover fundo de imagem grátis">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="FundoLivre">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FundoLivre — Remover Fundo de Imagem Grátis">
+  <meta property="og:description" content="Retire o fundo das suas imagens online e descarregue em PNG transparente.">
+  <meta property="og:locale" content="pt_PT">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FundoLivre — Removedor de Fundo">
+  <meta name="twitter:description" content="Remova o fundo das suas imagens gratuitamente.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FundoLivre",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript and an internet connection for the first model download.",
+    "description": "Ferramenta online gratuita para remover o fundo de imagens e exportar PNG com transparência.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Como remover o fundo de uma imagem online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abra o FundoLivre, carregue uma imagem JPG, PNG ou WEBP, clique em Remover fundo e descarregue o resultado em PNG transparente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O FundoLivre é gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O FundoLivre permite utilizar gratuitamente a ferramenta de remoção de fundo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso remover o fundo de várias imagens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Pode carregar várias imagens, processá-las individualmente ou em sequência e descarregar os resultados num ficheiro ZIP."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A imagem mantém a transparência depois de descarregada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O resultado é exportado em PNG, um formato que suporta transparência."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "As imagens são enviadas para um servidor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O processamento da imagem é feito no navegador do utilizador. A ferramenta necessita de internet para carregar a biblioteca e o modelo de inteligência artificial."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --dark: #172033;
+      --muted: #737d90;
+      --border: #e5eaf1;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --green: #16a36a;
+      --red: #dc2626;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--dark);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      height: 68px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 850;
+      letter-spacing: -1px;
+    }
+
+    .logo span, .blue { color: var(--primary); }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 12px;
+      font-weight: 650;
+      color: #596477;
+    }
+
+    .header-nav a:hover { color: var(--primary); }
+
+    .header-cta {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 9px 14px;
+      border-radius: 8px;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: auto;
+      padding: 55px 20px 30px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 750;
+      padding: 7px 12px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 49px);
+      line-height: 1.12;
+      margin: 0 0 16px;
+      letter-spacing: -1.8px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      max-width: 590px;
+      margin: auto;
+    }
+
+    .upload-area {
+      background: white;
+      border: 2px dashed #cbd6e7;
+      border-radius: 17px;
+      padding: 45px 20px;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .upload-area.dragging {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .upload-icon {
+      width: 65px;
+      height: 65px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      font-size: 30px;
+      margin: 0 auto 18px;
+    }
+
+    .upload-area h2 {
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+
+    .upload-area p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 19px;
+    }
+
+    .primary-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 9px;
+      padding: 12px 21px;
+      font-size: 13px;
+      font-weight: 750;
+      transition: .2s;
+    }
+
+    .primary-btn:hover { background: var(--primary-dark); }
+
+    .primary-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .secondary-btn {
+      background: white;
+      color: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 15px;
+    }
+
+    .toolbar-info {
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .file-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .image-area {
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background-color: #fff;
+      background-image:
+        linear-gradient(45deg,#e8e8e8 25%,transparent 25%),
+        linear-gradient(-45deg,#e8e8e8 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#e8e8e8 75%),
+        linear-gradient(-45deg,transparent 75%,#e8e8e8 75%);
+      background-size: 18px 18px;
+      background-position: 0 0,0 9px,9px -9px,-9px 0;
+    }
+
+    .image-area img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .file-info { padding: 12px; }
+
+    .file-name {
+      font-size: 12px;
+      font-weight: 750;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: 7px;
+    }
+
+    .file-status {
+      color: var(--muted);
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .file-status.success { color: var(--green); }
+    .file-status.error { color: var(--red); }
+
+    .progress {
+      height: 5px;
+      background: #edf0f5;
+      border-radius: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: var(--primary);
+      transition: width .2s;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .card-actions button {
+      flex: 1;
+      padding: 8px 5px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: white;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .card-actions button.download {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: #dbeafe;
+    }
+
+    .card-actions button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 35px 10px;
+      font-size: 13px;
+    }
+
+    .notice {
+      background: var(--primary-light);
+      color: #31558c;
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 25px;
+    }
+
+    .content-section {
+      max-width: 850px;
+      margin: 85px auto 0;
+    }
+
+    .content-section h2 {
+      font-size: clamp(23px, 3vw, 31px);
+      letter-spacing: -.8px;
+      line-height: 1.25;
+      margin: 0 0 17px;
+    }
+
+    .content-section h3 {
+      font-size: 18px;
+      margin: 28px 0 8px;
+    }
+
+    .content-section p,
+    .content-section li {
+      color: #5d687b;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .content-section ul,
+    .content-section ol {
+      padding-left: 22px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 19px;
+      background: white;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 9px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      margin: 0 0 7px;
+    }
+
+    .step p {
+      font-size: 12px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 17px 0;
+    }
+
+    .faq-item h3 {
+      font-size: 15px;
+      margin: 0 0 8px;
+    }
+
+    .faq-item p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .cta-bottom {
+      text-align: center;
+      margin: 75px auto 20px;
+      background: #f4f7ff;
+      border: 1px solid #e3ebff;
+      border-radius: 16px;
+      padding: 35px 20px;
+    }
+
+    .cta-bottom h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+
+    .cta-bottom p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 28px 15px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    footer a {
+      color: var(--primary);
+      margin: 0 7px;
+    }
+
+    @media(max-width:850px) {
+      .file-grid { grid-template-columns: repeat(2,1fr); }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media(max-width:550px) {
+      main { padding: 35px 14px 20px; }
+      .header { padding: 0 15px; }
+      .header-nav { gap: 10px; font-size: 10px; }
+      .header-nav a:not(.header-cta) { display: none; }
+      .upload-area { padding: 35px 15px; }
+      .file-grid { grid-template-columns: 1fr; }
+      .image-area { height: 250px; }
+      .toolbar { align-items: flex-start; }
+      .toolbar-actions { width: 100%; }
+      .toolbar-actions button { flex: 1; }
+      .content-section { margin-top: 60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a class="logo" href="#" aria-label="FundoLivre - Página inicial">
+    Fundo<span>Livre</span>
+  </a>
+
+  <nav class="header-nav" aria-label="Navegação principal">
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#vantagens">Vantagens</a>
+    <a href="#perguntas">Perguntas frequentes</a>
+    <a href="#ferramenta" class="header-cta">Remover fundo</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="eyebrow">FERRAMENTA ONLINE GRATUITA</span>
+
+    <h1>Remover fundo de imagem <span class="blue">grátis e online</span></h1>
+
+    <p>
+      Precisa de tirar o fundo de uma fotografia?
+      Com o FundoLivre, pode remover fundos de imagens automaticamente
+      e descarregar o resultado em PNG transparente, sem instalar programas.
+    </p>
+  </section>
+
+  <section id="ferramenta" aria-label="Ferramenta para remover fundo">
+
+    <div class="upload-area" id="dropArea">
+      <div class="upload-icon" aria-hidden="true">↑</div>
+
+      <h2>Arraste as imagens para aqui</h2>
+
+      <p>Ou selecione os ficheiros no seu dispositivo.</p>
+
+      <button class="primary-btn" id="selectFiles">
+        Selecionar imagens
+      </button>
+
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/jpeg,image/png,image/webp"
+        multiple
+        hidden
+      >
+
+      <p style="margin-top:17px;margin-bottom:0">
+        Formatos suportados: JPG, JPEG, PNG e WEBP
+      </p>
+    </div>
+
+    <section class="toolbar">
+      <div class="toolbar-info" id="counter" aria-live="polite">
+        Nenhuma imagem selecionada
+      </div>
+
+      <div class="toolbar-actions">
+        <button class="secondary-btn" id="clearAll">
+          Limpar
+        </button>
+
+        <button class="primary-btn" id="processAll">
+          Remover todos os fundos
+        </button>
+
+        <button class="secondary-btn" id="downloadZip" disabled>
+          Descarregar ZIP
+        </button>
+      </div>
+    </section>
+
+    <section class="file-grid" id="fileGrid" aria-live="polite">
+      <div class="empty" style="grid-column:1/-1">
+        As imagens que carregar aparecerão aqui.
+      </div>
+    </section>
+
+    <div class="notice">
+      <strong>Processamento no navegador:</strong>
+      o processamento das imagens é feito no seu dispositivo.
+      Na primeira utilização, o navegador precisa de descarregar
+      a biblioteca e o modelo de inteligência artificial.
+      Mantenha a ligação à internet ativa.
+    </div>
+
+  </section>
+
+  <section class="content-section" id="como-funciona">
+    <h2>Como remover o fundo de uma imagem online?</h2>
+
+    <p>
+      Remover o fundo de uma imagem é útil quando precisa de destacar
+      uma pessoa, um produto ou um objeto sem elementos a distrair.
+      Em vez de editar manualmente cada fotografia, pode utilizar
+      uma ferramenta automática para identificar o elemento principal
+      e separar o fundo.
+    </p>
+
+    <p>
+      O FundoLivre permite fazer esse processo diretamente no navegador.
+      Basta carregar a fotografia, iniciar a remoção e guardar o resultado
+      em formato PNG. Não precisa de instalar um editor de imagens
+      nem de criar uma conta para utilizar a ferramenta.
+    </p>
+
+    <div class="steps">
+      <article class="step">
+        <span class="step-number">1</span>
+        <h3>Carregue a fotografia</h3>
+        <p>
+          Escolha uma imagem JPG, PNG ou WEBP no seu computador
+          ou telemóvel.
+        </p>
+      </article>
+
+      <article class="step">
+        <span class="step-number">2</span>
+        <h3>Remova o fundo</h3>
+        <p>
+          Clique no botão de remoção. A ferramenta analisa a imagem
+          e separa o elemento principal do fundo.
+        </p>
+      </article>
+
+      <article class="step">
+        <span class="step-number">3</span>
+        <h3>Descarregue em PNG</h3>
+        <p>
+          Guarde a imagem com transparência para utilizar
+          noutros projetos.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="content-section" id="vantagens">
+    <h2>Para que serve remover o fundo de uma fotografia?</h2>
+
+    <p>
+      Uma imagem sem fundo pode ser utilizada em diferentes situações.
+      É especialmente útil quando pretende colocar um produto,
+      uma pessoa ou um objeto sobre outra cor, fotografia ou composição.
+    </p>
+
+    <h3>Fotografias de produtos para lojas online</h3>
+    <p>
+      Quem vende produtos pela internet pode utilizar imagens com fundo
+      transparente para criar catálogos, anúncios, banners e páginas
+      de produto com uma apresentação mais consistente.
+    </p>
+
+    <h3>Fotos para documentos e perfis</h3>
+    <p>
+      Pode retirar o fundo de uma fotografia para preparar imagens
+      destinadas a perfis profissionais, apresentações, cartões
+      e outros materiais gráficos.
+    </p>
+
+    <h3>Design gráfico e redes sociais</h3>
+    <p>
+      Uma imagem PNG transparente facilita a criação de publicações,
+      cartazes, miniaturas, capas, apresentações e outros conteúdos
+      visuais.
+    </p>
+
+    <h3>Logótipos e materiais promocionais</h3>
+    <p>
+      Imagens isoladas podem ser incorporadas em materiais de divulgação,
+      layouts de websites e composições publicitárias.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>O que é uma imagem PNG transparente?</h2>
+
+    <p>
+      PNG é um formato de imagem que suporta transparência.
+      Ao contrário de uma imagem JPG tradicional, um PNG pode guardar
+      áreas sem fundo. Isso permite colocar o objeto sobre diferentes
+      cores ou imagens sem apresentar um retângulo branco à volta.
+    </p>
+
+    <p>
+      Depois de remover o fundo com o FundoLivre, descarregue o resultado
+      em PNG para preservar as áreas transparentes. Tenha em atenção
+      que a qualidade do recorte depende da fotografia original,
+      da iluminação e da complexidade dos contornos.
+    </p>
+  </section>
+
+  <section class="content-section" id="perguntas">
+    <h2>Perguntas frequentes sobre remoção de fundo</h2>
+
+    <article class="faq-item">
+      <h3>Como remover o fundo de uma imagem gratuitamente?</h3>
+      <p>
+        Carregue a fotografia no FundoLivre, clique em Remover fundo
+        e aguarde o processamento. Depois, descarregue o resultado
+        em PNG transparente.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>O FundoLivre é gratuito?</h3>
+      <p>
+        Sim. Pode utilizar a ferramenta gratuitamente.
+        O processamento depende da capacidade do seu dispositivo
+        e da disponibilidade de memória.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Posso remover o fundo de várias imagens ao mesmo tempo?</h3>
+      <p>
+        Sim. Pode selecionar várias fotografias, adicioná-las à ferramenta
+        e utilizar a opção de processamento em lote. No final,
+        pode descarregar os resultados num único ficheiro ZIP.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Que formatos de imagem são aceites?</h3>
+      <p>
+        A ferramenta aceita imagens JPG, JPEG, PNG e WEBP.
+        Os resultados são guardados em PNG para suportar transparência.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Posso utilizar o PNG transparente noutros programas?</h3>
+      <p>
+        Sim. Pode utilizar a imagem em editores gráficos, documentos,
+        apresentações, lojas online, websites e publicações para redes sociais.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>As minhas imagens são enviadas para um servidor?</h3>
+      <p>
+        O processamento da imagem é realizado no navegador.
+        No entanto, é necessária uma ligação à internet para descarregar
+        a biblioteca e os dados do modelo de inteligência artificial.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Porque é que a primeira remoção pode demorar mais tempo?</h3>
+      <p>
+        Na primeira utilização, o navegador precisa de descarregar
+        o modelo de inteligência artificial. Nas utilizações seguintes,
+        parte dos recursos poderá já estar em cache.
+      </p>
+    </article>
+
+    <article class="faq-item">
+      <h3>Porque é que alguns recortes não ficam perfeitos?</h3>
+      <p>
+        Fotografias com fundos muito semelhantes ao objeto, pouca
+        iluminação, cabelos ou contornos complexos podem dificultar
+        a identificação. Experimente utilizar uma imagem mais nítida.
+      </p>
+    </article>
+  </section>
+
+  <section class="cta-bottom">
+    <h2>Pronto para remover o fundo?</h2>
+    <p>
+      Carregue a sua fotografia e obtenha uma imagem PNG transparente.
+    </p>
+    <a href="#ferramenta" class="primary-btn">
+      Começar agora
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <strong>FundoLivre</strong> · Removedor de fundo online
+  </div>
+  <p>Uma ferramenta simples para preparar imagens com transparência.</p>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#perguntas">Perguntas frequentes</a>
+  <a href="#ferramenta">Ferramenta</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script>
+(() => {
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+const dropArea = $('dropArea');
+const fileInput = $('fileInput');
+const fileGrid = $('fileGrid');
+
+let files = [];
+let removeBackgroundFunction = null;
+let loadingLibrary = null;
+
+const validTypes = [
+  'image/jpeg',
+  'image/png',
+  'image/webp'
+];
+
+function updateCounter() {
+  const total = files.length;
+  const completed = files.filter(f => f.result).length;
+  const processing = files.filter(f => f.processing).length;
+
+  $('counter').textContent =
+    total + (total === 1 ? ' imagem' : ' imagens') +
+    ' · ' + completed + ' concluída(s)' +
+    (processing ? ' · ' + processing + ' em processamento' : '');
+
+  $('downloadZip').disabled = completed === 0;
+
+  $('processAll').disabled =
+    total === 0 || files.every(f => f.result || f.processing);
+}
+
+function formatSize(bytes) {
+  if (bytes < 1024 * 1024) {
+    return (bytes / 1024).toFixed(0) + ' KB';
+  }
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+function renderFiles() {
+  fileGrid.innerHTML = '';
+
+  if (!files.length) {
+    fileGrid.innerHTML =
+      '<div class="empty" style="grid-column:1/-1">' +
+      'As imagens que carregar aparecerão aqui.</div>';
+
+    updateCounter();
+    return;
+  }
+
+  files.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'file-card';
+
+    const imageArea = document.createElement('div');
+    imageArea.className = 'image-area';
+
+    const img = document.createElement('img');
+    img.alt = item.name;
+    img.src = item.resultURL || item.previewURL;
+
+    imageArea.appendChild(img);
+
+    const info = document.createElement('div');
+    info.className = 'file-info';
+
+    const name = document.createElement('div');
+    name.className = 'file-name';
+    name.textContent = item.name;
+
+    const status = document.createElement('div');
+    status.className = 'file-status';
+
+    if (item.result) {
+      status.textContent = '✓ Fundo removido · PNG';
+      status.classList.add('success');
+    } else if (item.processing) {
+      status.textContent = item.progressText || 'A processar...';
+    } else if (item.error) {
+      status.textContent = 'Erro: ' + item.error;
+      status.classList.add('error');
+    } else {
+      status.textContent = formatSize(item.file.size) +
+        ' · Pronto para processar';
+    }
+
+    const progress = document.createElement('div');
+    progress.className = 'progress';
+
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    progressBar.style.width = item.progress + '%';
+
+    progress.appendChild(progressBar);
+
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+
+    const processButton = document.createElement('button');
+    processButton.textContent = item.result
+      ? 'Concluído'
+      : item.processing
+        ? 'A processar...'
+        : 'Remover fundo';
+
+    processButton.disabled = item.processing || !!item.result;
+    processButton.onclick = () => processFile(item);
+
+    const downloadButton = document.createElement('button');
+    downloadButton.className = 'download';
+    downloadButton.textContent = 'Descarregar PNG';
+    downloadButton.disabled = !item.result;
+    downloadButton.onclick = () => downloadFile(item);
+
+    actions.append(processButton, downloadButton);
+    info.append(name, status, progress, actions);
+    card.append(imageArea, info);
+    fileGrid.appendChild(card);
+  });
+
+  updateCounter();
+}
+
+function addFiles(selectedFiles) {
+  Array.from(selectedFiles || []).forEach(file => {
+    if (!validTypes.includes(file.type)) return;
+
+    const duplicate = files.some(item =>
+      item.file.name === file.name &&
+      item.file.size === file.size &&
+      item.file.lastModified === file.lastModified
+    );
+
+    if (duplicate) return;
+
+    files.push({
+      id: (crypto.randomUUID && crypto.randomUUID()) ||
+        String(Date.now() + Math.random()),
+      file,
+      name: file.name,
+      previewURL: URL.createObjectURL(file),
+      result: null,
+      resultURL: null,
+      processing: false,
+      progress: 0,
+      progressText: '',
+      error: ''
+    });
+  });
+
+  renderFiles();
+}
+
+$('selectFiles').onclick = () => fileInput.click();
+
+fileInput.onchange = e => {
+  addFiles(e.target.files);
+  fileInput.value = '';
+};
+
+dropArea.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropArea.classList.add('dragging');
+});
+
+dropArea.addEventListener('dragleave', () => {
+  dropArea.classList.remove('dragging');
+});
+
+dropArea.addEventListener('drop', e => {
+  e.preventDefault();
+  dropArea.classList.remove('dragging');
+  addFiles(e.dataTransfer.files);
+});
+
+/*
+  MOTOR DE REMOÇÃO DE FUNDO
+  Baseado na implementação fornecida do TeePublic Studio.
+*/
+
+async function loadBackgroundRemoval() {
+  if (removeBackgroundFunction) {
+    return removeBackgroundFunction;
+  }
+
+  if (loadingLibrary) {
+    return loadingLibrary;
+  }
+
+  loadingLibrary = (async () => {
+    const urls = [
+      'https://esm.sh/@imgly/background-removal@1.5.8?bundle&target=es2022',
+      'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.8/+esm'
+    ];
+
+    let module = null;
+    const errors = [];
+
+    for (const url of urls) {
+      try {
+        module = await import(url);
+        if (module) break;
+      } catch (error) {
+        errors.push(error.message || String(error));
+      }
+    }
+
+    const fn =
+      module?.default?.default ||
+      module?.default ||
+      module?.removeBackground;
+
+    if (typeof fn !== 'function') {
+      throw new Error(
+        'Não foi possível carregar a biblioteca de remoção de fundo. ' +
+        errors.join(' | ')
+      );
+    }
+
+    removeBackgroundFunction = fn;
+    return fn;
+  })();
+
+  try {
+    return await loadingLibrary;
+  } finally {
+    loadingLibrary = null;
+  }
+}
+
+async function processFile(item) {
+  if (item.processing || item.result) return;
+
+  item.processing = true;
+  item.error = '';
+  item.progress = 3;
+  item.progressText = 'A preparar a IA...';
+
+  renderFiles();
+
+  try {
+    const removeBackground = await loadBackgroundRemoval();
+
+    item.progress = 8;
+    item.progressText = 'A analisar a imagem...';
+    renderFiles();
+
+    const result = await removeBackground(item.file, {
+      publicPath:
+        'https://staticimgly.com/@imgly/background-removal-data/1.5.8/dist/',
+
+      model: 'isnet_quint8',
+      device: 'cpu',
+      proxyToWorker: false,
+
+      output: {
+        format: 'image/png',
+        type: 'foreground'
+      },
+
+      progress: (key, current, total) => {
+        if (total > 0) {
+          item.progress = Math.min(
+            95,
+            8 + (current / total) * 85
+          );
+
+          item.progressText =
+            'A processar ' + key + ' · ' +
+            Math.round(current / total * 100) + '%';
+
+          renderFiles();
+        }
+      }
+    });
+
+    if (!result || !result.size) {
+      throw new Error('A IA não devolveu uma imagem válida.');
+    }
+
+    item.result = result;
+    item.resultURL = URL.createObjectURL(result);
+    item.progress = 100;
+    item.progressText = 'Concluído';
+
+  } catch (error) {
+    console.error(error);
+    item.error = error.message || 'Erro desconhecido';
+  } finally {
+    item.processing = false;
+    renderFiles();
+  }
+}
+
+$('processAll').onclick = async () => {
+  const pending = files.filter(item => !item.result && !item.processing);
+
+  if (!pending.length) return;
+
+  $('processAll').disabled = true;
+
+  for (const item of pending) {
+    await processFile(item);
+  }
+
+  updateCounter();
+};
+
+function downloadFile(item) {
+  if (!item.result) return;
+
+  const a = document.createElement('a');
+  a.href = item.resultURL;
+  a.download = item.name.replace(/\.[^.]+$/, '') + '-sem-fundo.png';
+
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+$('downloadZip').onclick = async () => {
+  const completed = files.filter(item => item.result);
+
+  if (!completed.length) return;
+
+  if (typeof JSZip === 'undefined') {
+    alert('Não foi possível carregar a ferramenta ZIP. Verifica a internet.');
+    return;
+  }
+
+  const button = $('downloadZip');
+  button.disabled = true;
+  button.textContent = 'A criar ZIP...';
+
+  try {
+    const zip = new JSZip();
+    const folder = zip.folder('FundoLivre');
+
+    completed.forEach((item, index) => {
+      const baseName = item.name.replace(/\.[^.]+$/, '');
+      const name = baseName + '-sem-fundo' + (index ? '-' + index : '') + '.png';
+      folder.file(name, item.result);
+    });
+
+    const blob = await zip.generateAsync({
+      type: 'blob',
+      compression: 'DEFLATE',
+      compressionOptions: { level: 5 }
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+
+    a.href = url;
+    a.download = 'fundolivre-imagens.zip';
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+
+  } catch (error) {
+    console.error(error);
+    alert('Não foi possível criar o ficheiro ZIP.');
+  } finally {
+    button.textContent = 'Descarregar ZIP';
+    updateCounter();
+  }
+};
+
+$('clearAll').onclick = () => {
+  if (!files.length) return;
+
+  if (files.some(item => item.processing)) {
+    alert('Aguarda que o processamento termine antes de limpar.');
+    return;
+  }
+
+  files.forEach(item => {
+    URL.revokeObjectURL(item.previewURL);
+
+    if (item.resultURL) {
+      URL.revokeObjectURL(item.resultURL);
+    }
+  });
+
+  files = [];
+  renderFiles();
+};
+
+renderFiles();
+
+})();
+</script>
+
+</body>
+</html>
