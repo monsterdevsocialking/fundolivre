@@ -1223,6 +1223,37 @@ renderFiles();
 
 })();
 </script>
+<!-- MONETAG ADS -->
+<script>
+(function () {
+    'use strict';
 
+    function loadMonetag() {
+        if (document.querySelector('script[data-monetag="loaded"]')) {
+            return;
+        }
+
+        const script = document.createElement('script');
+
+        script.src = 'https://nap5k.com/tag.min.js';
+        script.dataset.zone = '12162107';
+        script.dataset.monetag = 'loaded';
+        script.async = true;
+
+        script.onerror = function () {
+            console.warn('Monetag não foi carregado.');
+        };
+
+        document.body.appendChild(script);
+    }
+
+    if (document.readyState === 'complete') {
+        loadMonetag();
+    } else {
+        window.addEventListener('load', loadMonetag, { once: true });
+    }
+})();
+</script>
+<!-- FIM MONETAG -->
 </body>
 </html>
